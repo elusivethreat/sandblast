@@ -110,7 +110,11 @@ def gen_ioc_report():
         st.code(pformat(emu_report['network_events']['dns'], indent=4))
 
         st.markdown('**HTTP/HTTPs requests**')
-        st.code(emu_report['network_events']['traffic'])
+        st.code(pformat(emu_report['network_events']['traffic'], indent=4))
+    
+    if 'process_events' in emu_report.keys():
+        st.markdown('**Process Creation:**')
+        st.code(pformat(emu_report['process_events'], indent=4))
 
     # Dump all Capa info
     st.markdown("**Capa based rules:**")

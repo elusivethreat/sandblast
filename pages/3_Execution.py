@@ -2,6 +2,7 @@ import json
 import streamlit as st
 from os import listdir
 from subprocess import run as proc_run
+from pprint import pformat
 
 st.set_page_config(page_title="Offline Sandbox", page_icon=":biohazard_sign:", layout="wide")
 
@@ -25,28 +26,35 @@ def cherry_pick_apis(entries):
     api_of_interest = ['KERNEL32.CreateNamedPipe', 'KERNEL32.ReadFile', 'KERNEL32.CreateFile', 'msvcrt.sprintf']
     executed_apis = []
     found = ""
-    try:
-        for entry in entries:
-            # Our main entry
-            if entry['ep_type']== 'module_entry':
-                # Parse report
+    
+    for entry in entries:
+        
+        # Our main entry
+        if entry['ep_type']== 'module_entry':
+            
+            # Parse report and verify no errors
+            st.session_state['emu_report'] = entry
+            if len(entry['apis']) >= 1:
                 all_instructions = entry['apis']
                 st.session_state['emu_report'] = entry
                 # Build chain of APIs that were called
                 for inst in all_instructions:
+                    
                     # Get API args 
                     args = ""
                     for arg in inst['args']:
                         args += arg + ', '
-                    #found += inst['api_name'] + '(' + args[:-2] + ')\n'
                     current_api = inst['api_name'] + '(' + args[:-2] + ')\n'
                     if current_api not in executed_apis:
                         executed_apis.append(current_api)
-        
-        for api in executed_apis:
-            found += api + '\n'
-    except TypeError:
-        return ""
+            
+            # Build error report
+            elif entry['error']:
+                error_emulating = "# Runtime error occurred during emulation: \n\n" + pformat(entry['error'], indent=4)
+                return error_emulating
+            
+    for api in executed_apis:
+        found += api + '\n'
     
     return found
 
@@ -95,16 +103,12 @@ def start_emulation():
         if cleaned:
             st.code(cleaned)
         else:
-            # Overwrite report to show simple error
-            #with open(f'reports/{target_file}_emulated.json', 'w') as f:
-                #f.write(res.stderr.decode())
-            #st.session_state['emu_report'] = res.stderr.decode()
             st.code(res.stderr.decode())
     else:
         with open(f"reports/{target_file}_emulated.json", 'r') as f:
             data = json.loads(f.read())
     
-        cleaned = cherry_pick_apis(data)
+        cleaned = cherry_pick_apis(data['entry_points'])
 
         if cleaned:
             # Display parsed APIs
@@ -121,6 +125,4 @@ def load():
 
 # Execute
 load()
-
-
 
