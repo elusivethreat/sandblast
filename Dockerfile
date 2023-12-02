@@ -8,6 +8,7 @@ RUN mkdir -p /app/tools/speakeasy
 RUN mkdir -p /app/images
 RUN mkdir -p /app/css
 RUN mkdir -p /app/pages
+RUN mkdir -p /app/.streamlit
 
 COPY css/* /app/css
 COPY pages/* /app/pages
@@ -15,6 +16,7 @@ COPY images/* /app/images
 COPY tools/capa /app/tools/
 COPY tools/floss /app/tools
 COPY Home.py /app
+COPY config.toml /app/.streamlit
 
 RUN apt-get update -y
 RUN apt-get install python3 python3-pip git -y
