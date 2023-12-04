@@ -174,15 +174,6 @@ class ETRSandbox:
                 # Overview
                 self.generate_overview()
                 
-                # Emulation
-                #self.start_emulation()
-                
-                # Behavior Graph
-                # self.gen_behavior_graph()
-                # IOC
-                #self.gen_ioc_report()
-                # Strings (add parser for Floss, display strings better)
-                #self.extract_strings()
             
 # Execute 
 etr = ETRSandbox()

@@ -1,3 +1,4 @@
 [theme]
 base="dark"
 primaryColor="red"
+font="monospace"
