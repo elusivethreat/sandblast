@@ -13,6 +13,7 @@ RUN mkdir -p /app/.streamlit
 COPY css/* /app/css
 COPY pages/* /app/pages
 COPY images/* /app/images
+COPY reports/* /app/reports
 COPY tools/capa /app/tools/
 COPY tools/floss /app/tools
 COPY Home.py /app

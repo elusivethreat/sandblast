@@ -67,7 +67,7 @@ def cherry_pick_apis(entries):
         
         elif st.session_state['is_dll'] :
             # Assign the "main" emu_report as the one that had network/process events
-            if 'network_events' in entry.keys() or 'process_events' in entry.keys():
+            if 'network_events' in entry.keys() or 'process_events' in entry.keys() or 'file_access' in entry.keys():
                 st.session_state['emu_report'] = entry
             
     return found
@@ -132,11 +132,6 @@ def start_emulation():
         else:
             st.code(res.stderr.decode())
     else:
-        if st.session_state['is_dll']:
-            with open(f'reports/{target_file}_emulated_dll.txt', 'r') as f:
-                data = f.read()
-            st.code(data)
-            return
         
         with open(f"reports/{target_file}_emulated.json", 'r') as f:
             data = json.loads(f.read())
@@ -147,8 +142,9 @@ def start_emulation():
             # Display parsed APIs
             st.code(cleaned)
         else:
-            # Display error
-            st.session_state['emu_report'] = data
+            # For DLLs currently
+            with open(f'reports/{target_file}_emulated_dll.txt', 'r') as f:
+                data = f.read()
             st.code(data)
 
 def load():

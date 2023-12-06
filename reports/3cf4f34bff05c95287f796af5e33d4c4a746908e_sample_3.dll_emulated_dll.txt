@@ -1,0 +1,61 @@
+* exec: dll_entry.DLL_PROCESS_ATTACH
+0x180002026: 'KERNEL32.GetSystemTimeAsFileTime(0x12fff90)' -> None
+0x180002034: 'KERNEL32.GetCurrentThreadId()' -> 0x434
+0x180002040: 'KERNEL32.GetCurrentProcessId()' -> 0x420
+0x180002050: 'KERNEL32.QueryPerformanceCounter(0x12fff98)' -> 0x1
+0x1800022cf: 'api-ms-win-crt-runtime-l1-1-0._initialize_onexit_table(0x180005698)' -> 0x0
+0x1800022df: 'api-ms-win-crt-runtime-l1-1-0._initialize_onexit_table(0x1800056b0)' -> 0x0
+0x180001b82: 'KERNEL32.InitializeSListHead(0x180005660)' -> None
+0x180001b9a: 'api-ms-win-crt-runtime-l1-1-0._initterm_e(0x180003208, 0x180003210)' -> 0x0
+0x180001bba: 'api-ms-win-crt-runtime-l1-1-0._initterm(0x1800031f8, 0x180003200)' -> 0x0
+* exec: export.ConfigureATPX
+0x18000120b: 'ADVAPI32.GetUserNameA("speakeasy_user", 0x12ffe40)' -> 0x1
+0x18000152b: 'VCRUNTIME140.memmove(0x12ffe20, 0x180003310, 0x9)' -> 0x12ffe20
+0x180001a7f: 'api-ms-win-crt-heap-l1-1-0.malloc(0x20)' -> 0x4890
+0x1800017a9: 'VCRUNTIME140.memcpy(0x4890, 0x12ffe20, 0x9)' -> 0x4890
+0x1800017b7: 'VCRUNTIME140.memcpy(0x4899, 0x12ffe58, 0xe)' -> 0x4899
+0x180001a7f: 'api-ms-win-crt-heap-l1-1-0.malloc(0x50)' -> 0x48c0
+0x180001758: 'VCRUNTIME140.memcpy(0x48c0, 0x4890, 0x17)' -> 0x48c0
+0x180001766: 'VCRUNTIME140.memcpy(0x48d7, 0x180003320, 0x29)' -> 0x48d7
+0x180001798: 'api-ms-win-crt-heap-l1-1-0.free(0x4890)' -> None
+0x180001347: 'KERNEL32.CreateFileA("C:\\Users\\speakeasy_user\\AppData\\Local\\Microsoft\\Windows\\cache.db", "GENERIC_ALL", 0x1, 0x0, "OPEN_EXISTING", 0x80, 0x0)' -> 0xffffffff
+0x18000135f: 'KERNEL32.GetFileSize(0xffffffff, 0x0)' -> 0xffffffff
+0x180001367: 'KERNEL32.GetProcessHeap()' -> 0x4920
+0x180001375: 'KERNEL32.HeapAlloc(0x4920, 0x0, 0xffffffff)' -> 0x200001000
+0x180001391: 'KERNEL32.ReadFile(0xffffffff, 0x200001000, 0xffffffff, 0x12ffe18, 0x0)' -> 0x0
+0x1800013a4: 'KERNEL32.OpenProcess(0x43a, 0x0, 0xffffffff)' -> 0x0
+0x1800013ba: 'KERNEL32.VirtualAlloc(0x0, 0x0, 0x3000, "PAGE_READWRITE")' -> 0x0
+0x1800013cd: 'VCRUNTIME140.memmove(0x0, 0x200001000, 0x0)' -> 0x0
+0x1800013e5: 'KERNEL32.VirtualProtect(0x0, 0x0, 0x20, 0x12ffe44)' -> 0x0
+0x180001404: 'KERNEL32.CreateThread(0x0, 0x0, 0x0, 0x0, 0x0, 0x12ffe48)' -> 0x220
+0x180001417: 'KERNEL32.WaitForSingleObject(0x220, 0xffffffff)' -> 0x0
+0x180001458: 'api-ms-win-crt-heap-l1-1-0.free(0x48c0)' -> None
+* exec: export.Load
+0x18000181b: 'KERNEL32.Sleep(0x100000)' -> None
+0x18000181b: 'KERNEL32.Sleep(0x100000)' -> None
+0x18000181b: 'KERNEL32.Sleep(0x100000)' -> None
+0x18000181b: 'KERNEL32.Sleep(0x100000)' -> None
+0x18000181b: 'KERNEL32.Sleep(0x100000)' -> None
+0x18000181b: 'KERNEL32.Sleep(0x100000)' -> None
+0x18000181b: 'KERNEL32.Sleep(0x100000)' -> None
+0x18000181b: 'KERNEL32.Sleep(0x100000)' -> None
+0x18000181b: 'KERNEL32.Sleep(0x100000)' -> None
+0x18000181b: 'KERNEL32.Sleep(0x100000)' -> None
+* exec: export.UnInstall
+0x180001890: 'ADVAPI32.GetUserNameA("speakeasy_user", 0x12ffe88)' -> 0x1
+0x18000152b: 'VCRUNTIME140.memmove(0x12ffe68, 0x180003310, 0x9)' -> 0x12ffe68
+0x180001a7f: 'api-ms-win-crt-heap-l1-1-0.malloc(0x20)' -> 0x4960
+0x1800017a9: 'VCRUNTIME140.memcpy(0x4960, 0x12ffe68, 0x9)' -> 0x4960
+0x1800017b7: 'VCRUNTIME140.memcpy(0x4969, 0x12ffe98, 0xe)' -> 0x4969
+0x180001a7f: 'api-ms-win-crt-heap-l1-1-0.malloc(0x50)' -> 0x4990
+0x180001758: 'VCRUNTIME140.memcpy(0x4990, 0x4960, 0x17)' -> 0x4990
+0x180001766: 'VCRUNTIME140.memcpy(0x49a7, 0x180003320, 0x29)' -> 0x49a7
+0x180001798: 'api-ms-win-crt-heap-l1-1-0.free(0x4960)' -> None
+0x1800019b8: 'KERNEL32.DeleteFileA("C:\\Users\\speakeasy_user\\AppData\\Local\\Microsoft\\Windows\\cache.db")' -> 0x0
+0x180001a06: 'api-ms-win-crt-heap-l1-1-0.free(0x4990)' -> None
+* exec: thread
+0x0: thread: Caught error: invalid_fetch
+* Child process timeout reached after 60 seconds
+* Timeout of 60 sec(s) reached.
+* Finished emulating
+* Saving emulation report to 3cf4f34bff05c95287f796af5e33d4c4a746908e_sample_3.dll.emulated.json
