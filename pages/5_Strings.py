@@ -3,7 +3,7 @@ from os import listdir
 from subprocess import run as proc_run
 
 
-st.set_page_config(page_title="Offline Sandbox", page_icon=":biohazard_sign:", layout="wide")
+st.set_page_config(page_title="Offline Sandbox", page_icon="images/hazard.png", layout="wide")
 
 def set_header():
     hide_streamlit_style = """
@@ -56,7 +56,12 @@ def get_strings():
     if not already_reported():
         while True:
             with st.spinner('Extracting strings with Floss...'):
-                    floss_res = proc_run(['tools/floss', '-n', '6', f'uploads/{target_file}'], capture_output=True)
+                    
+                    if st.session_state['shellcode']:
+                        floss_res = proc_run(['tools/floss', '-n', '6', '-fsc64', f'uploads/{target_file}'], capture_output=True)
+                    else:    
+                        floss_res = proc_run(['tools/floss', '-n', '6', f'uploads/{target_file}'], capture_output=True)
+                    
                     if floss_res.stdout:
                         break
         # Save results

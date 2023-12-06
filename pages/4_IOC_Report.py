@@ -5,10 +5,9 @@ from os import listdir
 from pprint import pformat
 from subprocess import run as proc_run
 
-st.set_page_config(page_title="Offline Sandbox", page_icon=":biohazard_sign:", layout="wide")
+st.set_page_config(page_title="Offline Sandbox", page_icon="images/hazard.png", layout="wide")
 
 def set_header():
-    #st.set_page_config(page_title="Offline Sandbox", page_icon=":biohazard_sign:", layout="wide")
     # Hide streamlit branding
     hide_streamlit_style = """
         <style>
@@ -123,7 +122,12 @@ def gen_ioc_report():
     if not already_reported():
         while True:
             with st.spinner('Generating Report...'):
-                capa_res = proc_run(['tools/capa', '-vv', f'uploads/{target_file}'], capture_output=True)
+                
+                if st.session_state['shellcode']:
+                    capa_res = proc_run(['tools/capa', '-vv', '-fsc64', f'uploads/{target_file}'], capture_output=True)
+                else:
+                    capa_res = proc_run(['tools/capa', '-vv', f'uploads/{target_file}'], capture_output=True)
+                
                 if capa_res.stdout:
                     break
                         

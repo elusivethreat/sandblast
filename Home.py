@@ -27,8 +27,7 @@ class ETRSandbox:
                     break
         
         st.code(capa_res.stdout.decode())
-
-                
+   
     def gen_behavior_graph(self):
         nodes = []
         edges = []
@@ -111,7 +110,7 @@ class ETRSandbox:
         st.code(floss_res.stdout.decode())
 
     def run(self):
-        st.set_page_config(page_title="Offline Sandbox", page_icon=":biohazard_sign:", layout="wide")
+        st.set_page_config(page_title="Offline Sandbox", page_icon="images/hazard.png", layout="wide")
         # Hide streamlit branding
         hide_streamlit_style = """
             <style>
@@ -142,6 +141,8 @@ class ETRSandbox:
         st.session_state['file_bytes'] = b''
         st.session_state['file_uid'] = ''
         st.session_state['emu_report'] = ''
+        st.session_state['shellcode'] = False
+        st.session_state['is_dll'] = False
 
         # File uploader section
         with st.container():

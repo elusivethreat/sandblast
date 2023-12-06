@@ -1,9 +1,10 @@
+import pefile
 import streamlit as st
 from os import listdir
 from hashlib import md5
 from subprocess import run as proc_run
 
-st.set_page_config(page_title="Offline Sandbox", page_icon=":biohazard_sign:", layout="wide")
+st.set_page_config(page_title="Offline Sandbox", page_icon="images/hazard.png", layout="wide")
 
 def set_header():
     #st.set_page_config(page_title="Offline Sandbox", page_icon=":biohazard_sign:", layout="wide")
@@ -43,9 +44,15 @@ def continue_to_execute():
         return True
 
 def load():
-    
+    """
+    Initial load of binary to analyze
+    """
+    # This will determine options for capa
+    try_shellcode = False
+
     # Establish Header across pages
     set_header()
+    
 
     # Start analysis
     capa_report = ''
@@ -54,13 +61,30 @@ def load():
     
     file_uid = st.session_state['file_uid']
     target_file = file_uid + '_' + st.session_state['current_file']
+
+    print("Loading : ", target_file)
     
+    try:
+        pe = pefile.PE(f'uploads/{target_file}', fast_load=False)
+        if pe.is_dll():
+            st.session_state['is_dll'] = True
+
+    except pefile.PEFormatError:
+        try_shellcode = True
+        st.session_state['shellcode'] = True
     
+    print("Shellcode detected: ", str(try_shellcode))
+
     # We already did the analysis
     if not already_reported():    
         while True:
             with st.spinner('Generating Report...'):
-                capa_res = proc_run(['tools/capa', f'uploads/{target_file}'], capture_output=True)
+                
+                if try_shellcode:
+                    capa_res = proc_run(['tools/capa', '-fsc64', f'uploads/{target_file}'], capture_output=True)
+                else:
+                    capa_res = proc_run(['tools/capa', f'uploads/{target_file}'], capture_output=True)
+                
                 if capa_res.stdout:
                     break
                 
