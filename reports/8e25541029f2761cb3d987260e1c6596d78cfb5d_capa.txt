@@ -1,0 +1,72 @@
+┍━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┑
+│ md5                    │ 49786ab49c83c11dadb7768fbc66232c                                                   │
+│ sha1                   │ 8e25541029f2761cb3d987260e1c6596d78cfb5d                                           │
+│ sha256                 │ cdcb8d228a17ae3577a866a18031cbeb94a98b8d9b1bd4099f97c64c80bcfce5                   │
+│ os                     │ windows                                                                            │
+│ format                 │ pe                                                                                 │
+│ arch                   │ amd64                                                                              │
+│ path                   │ /app/uploads/8e25541029f2761cb3d987260e1c6596d78cfb5d_Monsoon.exe                  │
+┕━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┙
+
+┍━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┑
+│ ATT&CK Tactic          │ ATT&CK Technique                                                                   │
+┝━━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┥
+│ DEFENSE EVASION        │ Obfuscated Files or Information T1027                                              │
+│                        │ Virtualization/Sandbox Evasion::System Checks T1497.001                            │
+├────────────────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+│ EXECUTION              │ Shared Modules T1129                                                               │
+┕━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┙
+
+┍━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┑
+│ MBC Objective               │ MBC Behavior                                                                  │
+┝━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┥
+│ ANTI-BEHAVIORAL ANALYSIS    │ Virtual Machine Detection [B0009]                                             │
+├─────────────────────────────┼───────────────────────────────────────────────────────────────────────────────┤
+│ CRYPTOGRAPHY                │ Cryptographic Hash::SHA256 [C0029.003]                                        │
+│                             │ Encrypt Data::3DES [C0027.004]                                                │
+│                             │ Encrypt Data::AES [C0027.001]                                                 │
+│                             │ Encrypt Data::RC4 [C0027.009]                                                 │
+│                             │ Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]                         │
+│                             │ Hashed Message Authentication Code [C0061]                                    │
+├─────────────────────────────┼───────────────────────────────────────────────────────────────────────────────┤
+│ DATA                        │ Check String [C0019]                                                          │
+│                             │ Encode Data::Base64 [C0026.001]                                               │
+│                             │ Encode Data::XOR [C0026.002]                                                  │
+│                             │ Non-Cryptographic Hash::FNV [C0030.005]                                       │
+│                             │ Non-Cryptographic Hash::MurmurHash [C0030.001]                                │
+├─────────────────────────────┼───────────────────────────────────────────────────────────────────────────────┤
+│ DEFENSE EVASION             │ Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]      │
+│                             │ Obfuscated Files or Information::Encryption-Standard Algorithm [E1027.m05]    │
+├─────────────────────────────┼───────────────────────────────────────────────────────────────────────────────┤
+│ DISCOVERY                   │ Analysis Tool Discovery::Process detection [B0013.001]                        │
+├─────────────────────────────┼───────────────────────────────────────────────────────────────────────────────┤
+│ PROCESS                     │ Allocate Thread Local Storage [C0040]                                         │
+┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┙
+
+┍━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┑
+│ Capability                                            │ Namespace                                            │
+┝━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┥
+│ reference analysis tools strings                      │ anti-analysis                                        │
+│ reference anti-VM strings targeting Xen               │ anti-analysis/anti-vm/vm-detection                   │
+│ parse credit card information (2 matches)             │ collection/credit-card                               │
+│ compiled with Go                                      │ compiler/go                                          │
+│ encode data using Base64 (6 matches)                  │ data-manipulation/encoding/base64                    │
+│ encode data using XOR (11 matches)                    │ data-manipulation/encoding/xor                       │
+│ encrypt data using AES (2 matches)                    │ data-manipulation/encryption/aes                     │
+│ encrypt data using AES via x86 extensions (7 matches) │ data-manipulation/encryption/aes                     │
+│ reference AES constants                               │ data-manipulation/encryption/aes                     │
+│ encrypt data using DES                                │ data-manipulation/encryption/des                     │
+│ encrypt data using RC4 PRGA (569 matches)             │ data-manipulation/encryption/rc4                     │
+│ hash data using fnv (3 matches)                       │ data-manipulation/hashing/fnv                        │
+│ hash data using murmur3 (5 matches)                   │ data-manipulation/hashing/murmur                     │
+│ hash data using SHA256                                │ data-manipulation/hashing/sha256                     │
+│ hash data using sha256 via x86 extensions             │ data-manipulation/hashing/sha256                     │
+│ hash data using SHA384                                │ data-manipulation/hashing/sha384                     │
+│ hash data using SHA512 (2 matches)                    │ data-manipulation/hashing/sha512                     │
+│ authenticate HMAC                                     │ data-manipulation/hmac                               │
+│ allocate thread local storage                         │ host-interaction/process                             │
+│ get kernel32 base address (3 matches)                 │ linking/runtime-linking                              │
+│ parse PE header (3 matches)                           │ load-code/pe                                         │
+│ resolve function by parsing PE exports (76 matches)   │ load-code/pe                                         │
+┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┙
+
